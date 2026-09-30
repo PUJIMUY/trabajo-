@@ -1,20 +1,28 @@
-# Documento de Especificación de Requisitos - Caso TicketPass
+# Documento de Especificación de Requisitos - LicorExpress
 
 **Universidad Mariana**
 **Ingeniería de Software I**
 **Proyecto Transversal - Unidad 2**
 
 **Equipo:**
-- Luis Felipe Paredes — Product Owner
-- Yeferson Pujimuy — Scrum Master
-- Santiago Chamorro — Desarrollador / Equipo de Desarrollo
+- [Nombre 1] — Product Owner
+- [Nombre 2] — Scrum Master
+- [Nombre 3] — Desarrollador / Equipo de Desarrollo
 
 **Fecha:** 30 de septiembre de 2026
 
+---
 
 ## 1. Contextualización del Proyecto
 
-TicketPass es una plataforma web para la comercialización y gestión de boletería para eventos y festivales de alta concurrencia. El sistema busca reducir los problemas de colapso de servidores, falsificación o duplicación de entradas y dificultades en la configuración de zonas, aforos y precios.
+LicorExpress es una plataforma web para la comercialización y domicilio de bebidas alcohólicas en ciudades de alta demanda. El sistema busca resolver problemas de control de inventario, verificación de edad para la venta de licor, gestión de pedidos a domicilio, y falta de información para los dueños sobre ventas y productos más solicitados.
+
+### Problemas reales que resuelve:
+- Venta de licor a menores de edad sin verificación adecuada.
+- Pérdida de inventario por falta de control de stock en tiempo real.
+- Pedidos mal gestionados y sin seguimiento ni coordinación con repartidores.
+- Falta de reportes para tomar decisiones de compra y ventas.
+- Domiciliarios entregan licor sin verificar edad en la puerta.
 
 ---
 
@@ -22,9 +30,9 @@ TicketPass es una plataforma web para la comercialización y gestión de boleter
 
 | # | Actor | Descripción |
 |:-:|:------|:------------|
-| **1** | **Comprador / Fan** | Usuario final que explora el catálogo de eventos, ingresa a la fila virtual, selecciona localidades y efectúa el pago de las entradas. |
-| **2** | **Organizador del Evento** | Cliente corporativo encargado de definir la logística comercial, habilitar las zonas del escenario, establecer aforos y consultar reportes de recaudo. |
-| **3** | **Logística / Personal de Puerta** | Operador en campo encargado de escanear y validar el acceso de los asistentes en los puntos de entrada mediante dispositivos móviles. |
+| **1** | **Cliente / Comprador** | Usuario final que explora el catálogo, verifica su edad, agrega productos al carrito, paga y recibe su pedido a domicilio. |
+| **2** | **Administrador / Dueño de Licorería** | Gestiona el inventario, precios, promociones, pedidos y consulta reportes de ventas y stock. |
+| **3** | **Domiciliario / Repartidor** | Recibe pedidos asignados, actualiza el estado de entrega, confirma ubicación y entrega el pedido verificando edad en la puerta. |
 
 ---
 
@@ -32,9 +40,14 @@ TicketPass es una plataforma web para la comercialización y gestión de boleter
 
 | # | Problema Identificado | Necesidad de Software | Requisito Funcional |
 |:-:|:----------------------|:----------------------|:--------------------|
-| **1** | Colapso de la plataforma web durante la venta inicial por alta concurrencia de usuarios simultáneos. | Administrar y ordenar el tráfico masivo de peticiones sin saturar la infraestructura. | El sistema debe asignar un turno en fila virtual a los usuarios cuando las peticiones superen las 1.000 solicitudes/minuto. |
-| **2** | Falsificación y duplicación de boletas en los puntos de acceso al evento durante la validación manual. | Garantizar la autenticidad e infalsificabilidad de las entradas digitales. | El sistema debe generar un código QR dinámico cifrado que se actualice cada 30 segundos dentro de la aplicación móvil. |
-| **3** | Errores humanos y lentitud al configurar manualmente los aforos y precios por localidad para cada concierto. | Digitalizar y centralizar la parametrización de recintos y ofertas comerciales. | El sistema debe permitir parametrizar zonas, límites de aforo y esquemas de precios de forma dinámica antes del lanzamiento comercial. |
+| **1** | Venta de licor a menores de edad sin verificación adecuada. | Validar la mayoría de edad del comprador antes de la venta. | El sistema debe solicitar y validar documento de identidad o selfie con cédula antes de confirmar la compra. |
+| **2** | Pérdida de inventario por falta de control de stock en tiempo real. | Registrar y actualizar automáticamente el stock de cada producto. | El sistema debe descontar del inventario cada producto vendido y alertar cuando el stock esté por debajo del mínimo. |
+| **3** | Pedidos a domicilio sin seguimiento ni coordinación con repartidores. | Asignar pedidos a repartidores y rastrear el estado en tiempo real. | El sistema debe asignar el pedido al repartidor disponible más cercano y mostrar el estado (preparando, en camino, entregado). |
+| **4** | Falta de reportes para decisiones de compra y ventas. | Generar indicadores de ventas, productos más vendidos y stock. | El sistema debe mostrar reportes de ventas por día, semana y mes, con los productos más y menos vendidos. |
+| **5** | Domiciliarios entregan licor sin verificar edad en la puerta. | Verificar edad al momento de la entrega. | El sistema debe permitir al repartidor escanear el documento del cliente o registrar la verificación antes de completar la entrega. |
+| **6** | Clientes no saben si su pedido está en camino. | Notificar al cliente cada cambio de estado. | El sistema debe enviar notificaciones push y por WhatsApp en cada cambio de estado del pedido. |
+| **7** | Proceso de pago lento y sin opciones. | Ofrecer múltiples métodos de pago electrónico. | El sistema debe permitir pago con tarjeta, PSE, Nequi y contra entrega. |
+| **8** | Falta de catálogo organizado por categorías. | Publicar catálogo digital con búsqueda y filtros. | El sistema debe mostrar productos organizados por categoría (cervezas, vinos, licores, mixers) con búsqueda y filtros. |
 
 ---
 
@@ -48,18 +61,18 @@ TicketPass es una plataforma web para la comercialización y gestión de boleter
 
 | ID | Historia de Usuario | MoSCoW | SP |
 |:--:|:--------------------|:------:|:--:|
-| HU01 | Fila virtual para compra de boletos | Must Have | 13 |
-| HU02 | Generación de código QR dinámico | Must Have | 5 |
-| HU03 | Parametrización de zonas y precios | Must Have | 2 |
-| HU04 | Selección de boletos mediante mapa interactivo | Should Have | 8 |
-| HU05 | Validación de boletos en punto de acceso | Must Have | 3 |
-| HU06 | Registro de usuarios | Must Have | 3 |
-| HU07 | Catálogo de eventos | Should Have | 5 |
-| HU08 | Pago de boletería | Must Have | 5 |
-| HU09 | Historial de compras | Could Have | 3 |
-| HU10 | Monitoreo de ventas y recaudo | Should Have | 5 |
-| HU11 | Notificaciones de compra | Could Have | 3 |
-| | **TOTAL** | | **55 SP** |
+| HU01 | Verificación de mayoría de edad | Must Have | 5 |
+| HU02 | Catálogo de productos por categorías | Must Have | 5 |
+| HU03 | Registro e inicio de sesión | Must Have | 3 |
+| HU04 | Carrito de compras | Must Have | 5 |
+| HU05 | Pago electrónico y contra entrega | Must Have | 8 |
+| HU06 | Gestión de inventario y stock | Must Have | 5 |
+| HU07 | Asignación de pedidos a domiciliarios | Must Have | 8 |
+| HU08 | Seguimiento del pedido en tiempo real | Should Have | 8 |
+| HU09 | Verificación de edad en la entrega | Should Have | 5 |
+| HU10 | Historial de pedidos del cliente | Could Have | 3 |
+| HU11 | Reportes de ventas y stock | Should Have | 5 |
+| | **TOTAL** | | **60 SP** |
 
 ---
 
@@ -67,16 +80,18 @@ TicketPass es una plataforma web para la comercialización y gestión de boleter
 
 Cada Historia de Usuario cuenta con mínimo 3 criterios de aceptación verificables mediante casillas de verificación (`- [ ]`), los cuales se encuentran documentados en cada Issue de GitHub.
 
-### Ejemplo — HU01: Fila virtual para compra de boletos
+### Ejemplo — HU01: Verificación de mayoría de edad
 
-**Como** comprador
-**Quiero** ingresar a una fila virtual cuando exista alta demanda
-**Para** poder acceder ordenadamente a la compra sin que la plataforma colapse
+**Como** cliente
+**Quiero** verificar mi mayoría de edad antes de comprar
+**Para** cumplir con la normativa legal de venta de licor
 
 **Criterios de Aceptación:**
-- [ ] El sistema activa la fila virtual cuando la demanda supera el umbral configurado.
-- [ ] El usuario recibe un turno y puede consultar su posición.
-- [ ] El sistema permite avanzar desde la fila hacia el proceso de compra sin perder el turno.
+- [ ] El sistema solicita fecha de nacimiento al registrarse
+- [ ] Se valida que el usuario sea mayor de 18 años
+- [ ] Se solicita foto del documento de identidad para validación
+- [ ] Si el usuario es menor, se bloquea el acceso a la compra
+- [ ] La verificación se guarda en el perfil del usuario
 
 ---
 
@@ -84,15 +99,15 @@ Cada Historia de Usuario cuenta con mínimo 3 criterios de aceptación verificab
 
 | Integrante | Rol | Responsabilidades |
 |:-----------|:----|:------------------|
-| **Luis Felipe Paredes** | Product Owner | Gestionar y priorizar el Product Backlog, representar el valor del producto y definir prioridades. |
-| **Yeferson Pujimuy** | Scrum Master | Facilitar Scrum, apoyar al equipo, eliminar impedimentos y promover el cumplimiento del proceso. |
-| **Santiago Chamorro** | Desarrollador / Equipo de Desarrollo | Diseñar, construir, probar e integrar las funcionalidades del producto. |
+| **[Nombre 1]** | Product Owner | Gestionar y priorizar el Product Backlog, representar el valor del producto y definir prioridades. |
+| **[Nombre 2]** | Scrum Master | Facilitar Scrum, apoyar al equipo, eliminar impedimentos y promover el cumplimiento del proceso. |
+| **[Nombre 3]** | Desarrollador / Equipo de Desarrollo | Diseñar, construir, probar e integrar las funcionalidades del producto. |
 
 ---
 
 ## 7. Modelo de Proceso
 
-Se selecciona **Scrum** porque TicketPass es una plataforma comercial que puede desarrollarse de forma iterativa, entregando primero las funcionalidades críticas (MVP) y posteriormente las funcionalidades de experiencia y administración.
+Se selecciona **Scrum** porque LicorExpress es una plataforma comercial que puede desarrollarse de forma iterativa, entregando primero las funcionalidades críticas (MVP) y posteriormente las funcionalidades de experiencia y administración.
 
 - **Velocidad del equipo:** 12 SP por Sprint
 - **Duración de cada Sprint:** 2 semanas
@@ -104,11 +119,11 @@ Se selecciona **Scrum** porque TicketPass es una plataforma comercial que puede 
 
 | Concepto | Valor |
 |:---------|:------|
-| **Total Story Points** | 55 SP |
+| **Total Story Points** | 60 SP |
 | **Factor de conversión** | 8 horas / SP |
-| **Esfuerzo total** | 440 horas |
+| **Esfuerzo total** | 480 horas |
 | **Tarifa profesional** | $45.000 COP / hora |
-| **Costo estimado total** | $19.800.000 COP |
+| **Costo estimado total** | $21.600.000 COP |
 
+---
 
-**Fin del documento.**

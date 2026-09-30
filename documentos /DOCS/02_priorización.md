@@ -121,5 +121,3 @@ El MVP cubre las **tres dimensiones críticas del negocio**:
 | **TOTAL** | **11** | **55** |
 
 ---
-
-**Fin del documento.**

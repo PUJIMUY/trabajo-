@@ -5,9 +5,9 @@
 **Proyecto Transversal - Unidad 2**
 
 **Equipo:**
-- [Nombre 1] — Product Owner
-- [Nombre 2] — Scrum Master
-- [Nombre 3] — Desarrollador / Equipo de Desarrollo
+- [uis felipe paredes riascos— Desarrollador / Equipo de Desarrollo
+- [Santiago chamorro marinez] — Scrum Master
+- [Pujimuy yeferson — Desarrollador / Equipo de Desarrollo
 
 **Fecha:** 30 de septiembre de 2026
 

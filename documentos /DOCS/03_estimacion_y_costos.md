@@ -33,7 +33,7 @@ Un Story Point es una unidad abstracta de medida que evalúa la **Carga Global d
 
 ### 2.2 Planning Poker y Secuencia de Fibonacci
 
-Se utiliza la secuencia modificada de Fibonacci: **1, 2, 3, 5, 8, 13, 20** porque la incertidumbre en ingeniería de software no escala linealmente, sino exponencialmente.
+Se utiliza la secuencia modificada de Fibonacci: **1, 2, 3, 5, 8, 13, 21** porque la incertidumbre en ingeniería de software no escala linealmente, sino exponencialmente.
 
 ### 2.3 Historia Pivote
 

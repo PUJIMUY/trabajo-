@@ -59,9 +59,9 @@ Scrum permite iterar, recibir retroalimentación y ajustar el alcance sin compro
 
 | Rol | Integrante | Responsabilidades |
 |:----|:-----------|:------------------|
-| **Product Owner** | [Nombre 1] | Gestiona, prioriza y aclara la Pila de Producto (Product Backlog). |
-| **Scrum Master** | [Nombre 2] | Líder servidor que elimina impedimentos y asegura la aplicación de Scrum. |
-| **Equipo de Desarrollo** | [Nombre 3] | Profesional multifuncional que realiza análisis, diseño, codificación y pruebas. |
+| **Desarollador** | [Luis felipe paredes] | Gestiona, prioriza y aclara la Pila de Producto (Product Backlog). |
+| **Scrum Master** | [Santiago chamorro] | Líder servidor que elimina impedimentos y asegura la aplicación de Scrum. |
+| **Equipo de Desarrollo** | [Yeferson pujimuy] | Profesional multifuncional que realiza análisis, diseño, codificación y pruebas. |
 
 ### 2.4 Artefactos de Scrum
 

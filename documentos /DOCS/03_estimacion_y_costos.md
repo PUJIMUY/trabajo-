@@ -16,7 +16,7 @@
 
 | Integrante | Rol | Responsabilidades |
 |:-----------|:----|:------------------|
-| **[luis felipe paredes riascos]** | Product Owner (PO) | Representa la voz del cliente. Explica el alcance de cada HU y verifica que la estimación respete las prioridades del negocio. |
+| **[luis felipe paredes riascos]** | Desarrollador | Representa la voz del cliente. Explica el alcance de cada HU y verifica que la estimación respete las prioridades del negocio. |
 | **[Santiago chamorro marinez]** | Scrum Master | Facilita el proceso Scrum, guía las discusiones de arquitectura, resuelve empates técnicos durante el Planning Poker y elimina impedimentos. |
 | **[Pujimuy yeferson]** | Desarrollador | Evalúa el esfuerzo de codificación, integración con base de datos, lógica de negocio y pruebas necesarias para cada funcionalidad. |
 
